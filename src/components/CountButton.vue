@@ -14,7 +14,7 @@ const emit = defineEmits<{
 
 const handleClick = () => {
   props.onClick()
-  emit(`clicked${props.action}`)
+  emit('clicked', props.action)
 }
 </script>
 

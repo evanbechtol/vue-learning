@@ -26,8 +26,8 @@ onMounted(async () => {
   posts.value = await getPosts()
 })
 
-const onButtonClick = (action: () => void) => {
-  console.log(`Button clicked: ${action.name}`)
+const onButtonClick = (action: string) => {
+  console.log(`Button clicked: ${action}`)
 }
 </script>
 
@@ -36,7 +36,7 @@ const onButtonClick = (action: () => void) => {
     <p>Count is: {{ count }}</p>
     <template v-for="(action, index) in actions" :key="index">
       <CountButton
-        @[`clicked${action.name}`]="onButtonClick(action.operation)"
+        @clicked="onButtonClick"
         :onClick="action.operation"
         :action="action.name"
         class="count_button_wrapper"
